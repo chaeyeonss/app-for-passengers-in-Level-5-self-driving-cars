@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">DSCMobile</string>
+    <string name="title_home">홈</string>
+    <string name="calling_tap">차량 호출</string>
+    <string name="indoor_setting_tap">실내 설정</string>
+    <string name="notifications_tap">알림</string>
+    <string name="mypage_tap">내 정보</string>
+
+    <string-array name="home_cards_row1">
+        <item>카드1</item>
+        <item>카드2</item>
+        <item>카드3</item>
+        <item>카드4</item>
+        <item>카드5</item>
+    </string-array>
+
+</resources>

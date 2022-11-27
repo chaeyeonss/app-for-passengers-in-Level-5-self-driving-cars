@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/calling_tap"
+        android:icon="@drawable/ic_car_black_24"
+        android:title="@string/calling_tap" />
+
+    <item
+        android:id="@+id/indoor_setting_tap"
+        android:icon="@drawable/ic_setting_black_24"
+        android:title="@string/indoor_setting_tap" />
+
+    <item
+        android:id="@+id/notifications_tap"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="@string/notifications_tap" />
+
+    <item
+        android:id="@+id/mypage_tap"
+        android:icon="@drawable/ic_mypage_black_24"
+        android:title="@string/mypage_tap" />
+
+</menu>

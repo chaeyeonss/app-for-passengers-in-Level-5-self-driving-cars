@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    tools:context=".ui.mypage.MyPageFragment">
+
+    <TextView
+        android:id="@+id/header_mypage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/mypage_profile"
+        app:layout_constraintVertical_weight="0.1"/>
+
+    <LinearLayout
+        android:id="@+id/mypage_profile"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:weightSum="10"
+        app:layout_constraintTop_toBottomOf="@id/header_mypage"
+        app:layout_constraintBottom_toTopOf="@id/mypage_menu"
+        app:layout_constraintVertical_weight="0.1">
+
+        <ImageView
+            android:id="@+id/user_img"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:src="@mipmap/ic_launcher_round"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="사용자 이름" />
+            <TextView
+                android:id="@+id/user_contact"
+                android:text="연락처"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"/>
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/to_detail_profile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_arrow_right_24"
+            tools:ignore="SpeakableTextPresentCheck" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mypage_menu"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/mypage_profile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_weight="0.8"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
