@@ -28,12 +28,24 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
     public CardAdapter(int index) {
         switch (index){
-            case 0: cardDataSet = new String[]{"","","","","",""};
-            case 1: cardDataSet = new String[]{"","","","","",""};
-            case 2: cardDataSet = new String[]{"","","","","","","","",""};
-            case 3: cardDataSet = new String[]{"","","","","","",""};
-            case 4: cardDataSet = new String[]{"","","",""};
-            //default: cardDataSet = new String[]{"카드1","카드2","카드3","카드4","카드5","카드6"};
+            case 0:
+                cardDataSet = new String[]{"","","","","",""};
+                break;
+            case 1:
+                cardDataSet = new String[]{"","","","","",""};
+                break;
+            case 2:
+                cardDataSet = new String[]{"","","","","","","","",""};
+                break;
+            case 3:
+                cardDataSet = new String[]{"","","","","","",""};
+                break;
+            case 4:
+                cardDataSet = new String[]{"","","",""};
+                break;
+            default:
+                cardDataSet = new String[]{"카드1","카드2","카드3","카드4","카드5","카드6"};
+                break;
         }
     }
 

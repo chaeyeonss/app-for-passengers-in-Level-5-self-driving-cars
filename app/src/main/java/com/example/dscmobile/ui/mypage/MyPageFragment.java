@@ -23,10 +23,9 @@ import java.util.ArrayList;
 public class MyPageFragment extends Fragment {
 
     private FragmentMypageBinding binding;
-    private RecyclerView mRecyclerView;
+    private RecyclerView myPageMenu;
     private MyPageMenuAdapter myPageMenuAdapter;
-    private RecyclerView.LayoutManager layoutManager;
-    private ArrayList myPageMenuData;
+    private ArrayList<MyPageMenuData> myPageMenuData;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         MyPageViewModel myPageViewModel = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(MyPageViewModel.class);
@@ -34,16 +33,15 @@ public class MyPageFragment extends Fragment {
         binding = FragmentMypageBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        mRecyclerView = (RecyclerView) root.findViewById(R.id.mypage_menu);
-        mRecyclerView.setHasFixedSize(true);
+        myPageMenu = (RecyclerView) root.findViewById(R.id.mypageMenuRecyclerView);
+        myPageMenu.setHasFixedSize(true);
 
-        layoutManager = new LinearLayoutManager(getActivity());
-        mRecyclerView.setLayoutManager(layoutManager);
-        mRecyclerView.scrollToPosition(0);
+        myPageMenu.setLayoutManager(new LinearLayoutManager(getActivity()));
+        myPageMenu.scrollToPosition(0);
 
-        myPageMenuAdapter = new MyPageMenuAdapter(this, myPageMenuData);
-        mRecyclerView.setAdapter(myPageMenuAdapter);
-        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        myPageMenuAdapter = new MyPageMenuAdapter(myPageMenuData);
+        myPageMenu.setAdapter(myPageMenuAdapter);
+        myPageMenu.setItemAnimator(new DefaultItemAnimator());
 
         final TextView textView = binding.headerMypage;
         myPageViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);

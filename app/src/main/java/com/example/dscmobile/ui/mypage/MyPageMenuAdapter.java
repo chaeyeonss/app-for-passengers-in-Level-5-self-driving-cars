@@ -14,40 +14,48 @@ import com.example.dscmobile.R;
 import java.util.ArrayList;
 
 public class MyPageMenuAdapter extends RecyclerView.Adapter<MyPageMenuAdapter.MyPageMenuViewHolder> {
+    private ArrayList<MyPageMenuData> menuDataset;
 
     public static class MyPageMenuViewHolder extends RecyclerView.ViewHolder {
-        public ImageView menuIcon;
-        public TextView menuName;
+        private final ImageView menuIcon;
+        private final TextView menuName;
 
         public MyPageMenuViewHolder(View view){
             super(view);
             menuIcon = (ImageView) view.findViewById(R.id.menu_icon);
             menuName = (TextView) view.findViewById(R.id.menu_name);
         }
+
+        public ImageView getMenuIcon() {
+            return menuIcon;
+        }
+
+        public TextView getMenuName() {
+            return menuName;
+        }
     }
 
-    private ArrayList mDataset;
-
-    public MyPageMenuAdapter(MyPageFragment ct, ArrayList searchDataSet){
-        mDataset = searchDataSet;
+    public MyPageMenuAdapter(ArrayList<MyPageMenuData> dataSet){
+        menuDataset = dataSet;
     }
 
     @NonNull
     @Override
     public MyPageMenuViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_mypage_menu, parent, false);
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.layout_mypage_menu, parent, false);
         return new MyPageMenuViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(MyPageMenuAdapter.MyPageMenuViewHolder holder, int position) {
-        System.out.println(mDataset.get(position).getClass().getName());
-        holder.menuName.setText(mDataset.get(position).toString());
+    public void onBindViewHolder(MyPageMenuViewHolder holder, int position) {
+        holder.getMenuName().setText(menuDataset.get(position).getMenuName());
+        holder.getMenuIcon().setImageResource(menuDataset.get(position).getMenuIconNum());
     }
 
     @Override
     public int getItemCount() {
-        return mDataset.size();
+        return menuDataset.size();
     }
 
 

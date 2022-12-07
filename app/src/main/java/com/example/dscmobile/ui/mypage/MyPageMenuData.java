@@ -1,15 +1,15 @@
 package com.example.dscmobile.ui.mypage;
 
 public class MyPageMenuData {
-    public int num_img;
-    public String menuName;
+    private int menuIconNum;
+    private String menuName;
 
-    public int getNum_img() {
-        return num_img;
+    public int getMenuIconNum() {
+        return menuIconNum;
     }
 
-    public void setNum_img(int num_img) {
-        this.num_img = num_img;
+    public void setMenuIconNum(int menuIconNum) {
+        this.menuIconNum = menuIconNum;
     }
 
     public String getMenuName() {
@@ -20,8 +20,8 @@ public class MyPageMenuData {
         this.menuName = menuName;
     }
 
-    public MyPageMenuData(int num_img, String menuName) {
-        this.num_img = num_img;
+    public MyPageMenuData(int menuIconNum, String menuName) {
+        this.menuIconNum = menuIconNum;
         this.menuName = menuName;
     }
 }

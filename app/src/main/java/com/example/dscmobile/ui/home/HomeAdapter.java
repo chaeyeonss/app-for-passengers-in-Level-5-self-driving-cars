@@ -8,15 +8,11 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dscmobile.R;
 
-import java.util.ArrayList;
 
 public class HomeAdapter extends ArrayAdapter {
     Context context;
@@ -29,7 +25,7 @@ public class HomeAdapter extends ArrayAdapter {
     }
 
     @Override
-    public View getView(int position, @Nullable View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {
         final MyViewHolder viewHolder;
 
         if (convertView == null){
