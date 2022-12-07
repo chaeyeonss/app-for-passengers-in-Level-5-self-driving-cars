@@ -9,28 +9,28 @@
     tools:context=".ui.home.HomeFragment">
 
     <TextView
-        android:id="@+id/text_home"
+        android:id="@+id/homeTextView"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:text="가장 가까운 맛집\n여기 다 모여 있어요!"
+        android:text="@string/home_welcome_text"
         android:gravity="bottom"
         android:padding="10dp"
         android:textColor="#004D40"
         android:textSize="30sp"
         app:layout_constraintVertical_weight="0.3"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/card_list"
+        app:layout_constraintBottom_toTopOf="@id/homeCardListView"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ListView
-        android:id="@+id/card_list"
+        android:id="@+id/homeCardListView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@drawable/background_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_home"
+        app:layout_constraintTop_toBottomOf="@id/homeTextView"
         app:layout_constraintVertical_weight="0.7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

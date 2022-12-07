@@ -1,14 +1,15 @@
 package com.example.dscmobile.ui.home;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,51 +18,35 @@ import com.example.dscmobile.R;
 
 import java.util.ArrayList;
 
-public class HomeAdapter extends BaseAdapter {
-
-    ArrayList<CardItem> items = new ArrayList<>();
+public class HomeAdapter extends ArrayAdapter {
     Context context;
+    String[] phrases;
 
-    @Override
-    public int getCount() {
-        return items.size();
+    public HomeAdapter(Context context, String[] phrases) {
+        super(context, 0, phrases);
+        this.context = context;
+        this.phrases = phrases;
     }
 
     @Override
-    public Object getItem(int position) {
-        return items.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        context = parent.getContext();
-        CardItem cardItem = items.get(position);
+    public View getView(int position, @Nullable View convertView, ViewGroup parent) {
+        final MyViewHolder viewHolder;
 
         if (convertView == null){
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.layout_home_card_row, parent, false);
+            LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+            convertView = layoutInflater.inflate(R.layout.layout_home_card_row, parent, false);
         }
 
-        TextView sectionPhraseText = convertView.findViewById(R.id.section_phrase);
-        sectionPhraseText.setText(cardItem.getSectionPhrase());
+        viewHolder = new MyViewHolder();
+        viewHolder.themePhrase = (TextView) convertView.findViewById(R.id.homeThemePhraseTextView);
+        viewHolder.cards = (RecyclerView) convertView.findViewById(R.id.homeCardRecyclerView);
 
-        RecyclerView cards = convertView.findViewById(R.id.home_card);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
-        cards.setLayoutManager(layoutManager);
-        cards.scrollToPosition(0);
-        cards.setItemAnimator(new DefaultItemAnimator());
-        // 홈화면에 카드는 안 나오는 중 >>> todo!
+        viewHolder.themePhrase.setText(phrases[position]);
+        viewHolder.cards.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false));
+
+        viewHolder.cards.setAdapter(new CardAdapter(position));
+        Log.e("홈 어댑터에서 얻는 position 값", position+"");
 
         return convertView;
     }
-
-    public void addItem(CardItem item){
-        items.add(item);
-    }
-
 }

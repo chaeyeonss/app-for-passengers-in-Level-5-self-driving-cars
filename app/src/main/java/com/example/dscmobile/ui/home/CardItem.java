@@ -1,16 +1,9 @@
 package com.example.dscmobile.ui.home;
-
+/* 홈 페이지
+   테마별 추천 리스트 카드 내용
+ */
 public class CardItem {
-    private String sectionPhrase;
     private String[] cardContents;
-
-    public String getSectionPhrase() {
-        return sectionPhrase;
-    }
-
-    public void setSectionPhrase(String sectionPhrase) {
-        this.sectionPhrase = sectionPhrase;
-    }
 
     public String[] getCardContents() {
         return cardContents;
@@ -20,8 +13,7 @@ public class CardItem {
         this.cardContents = cardContents;
     }
 
-    public CardItem(String sectionPhrase, String[] cardContents) {
-        this.sectionPhrase = sectionPhrase;
+    public CardItem(String[] cardContents) {
         this.cardContents = cardContents;
     }
 }

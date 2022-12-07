@@ -5,13 +5,14 @@
     <string name="indoor_setting_tap">실내 설정</string>
     <string name="notifications_tap">알림</string>
     <string name="mypage_tap">내 정보</string>
+    <string name="home_welcome_text">가장 가까운 맛집\n여기 다 모여 있어요!</string>
 
-    <string-array name="home_cards_row1">
-        <item>카드1</item>
-        <item>카드2</item>
-        <item>카드3</item>
-        <item>카드4</item>
-        <item>카드5</item>
+    <string-array name="home_card_phrases">
+        <item>카카오 평점이 높은 음식점</item>
+        <item>안락한 분위기의 카페</item>
+        <item>빵순이 빵도리를 위한 추천</item>
+        <item>센치한 날에 가기 좋은 곳</item>
+        <item>깊은 생각에 빠지기 좋은 조용한 곳</item>
     </string-array>
 
 </resources>

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -18,37 +19,34 @@ import com.example.dscmobile.MainActivity;
 import com.example.dscmobile.R;
 import com.example.dscmobile.databinding.FragmentHomeBinding;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
-    ListView cardListView;
-    RecyclerView cardsView;
-    HomeAdapter adapter;
-    CardAdapter cardAdapter;
 
-    String[] cardSample;
+    ArrayList<CardItem> cardItems;
+    ListView homeCardListView; // 홈 화면에 있는 추천 카드 섹션들
+    private static HomeAdapter adapter;
+
+    RecyclerView cardRecyclerView; // 섹션마다 있는 카드들
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         HomeViewModel homeViewModel = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(HomeViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        //View root = binding.getRoot();
 
-        cardListView = root.findViewById(R.id.card_list);
-        cardsView = root.findViewById(R.id.home_card);
-        adapter = new HomeAdapter();
-        cardSample = getResources().getStringArray(R.array.home_cards_row1);
+        cardItems = new ArrayList<>();
+        cardItems.add(new CardItem(new String[]{"카드1", "카드2"}));
+        cardItems.add(new CardItem(new String[]{"카드1", "카드2", "카드3", "카드4", "카드5"}));
+        cardItems.add(new CardItem(new String[]{"카드1", "카드2", "카드3", "카드4", "카드5", "카드6", "카드7"}));
+        cardItems.add(new CardItem(new String[]{"카드1", "카드2", "카드3"}));
 
-
-        adapter.addItem(new CardItem("카카오 평점이 높은 음식점", new String[]{"카드1", "카드2"}));
-        adapter.addItem(new CardItem("안락한 분위기의 카페", new String[]{"카드1", "카드2", "카드3", "카드4", "카드5"}));
-        adapter.addItem(new CardItem("빵순이 빵도리를 위한 추천", new String[]{"카드1", "카드2", "카드3", "카드4", "카드5", "카드6", "카드7"}));
-        adapter.addItem(new CardItem("센치한 날에 가기 좋은 곳", new String[]{"카드1", "카드2", "카드3"}));
-        cardListView.setAdapter(adapter);
-
-
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        homeCardListView = root.findViewById(R.id.homeCardListView);
+        adapter = new HomeAdapter(getContext(), getResources().getStringArray(R.array.home_card_phrases));
+        homeCardListView.setAdapter(adapter);
 
         return root;
     }

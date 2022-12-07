@@ -8,11 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dscmobile.R;
 
-public class MyViewHolder extends RecyclerView.ViewHolder {
-    TextView cardContent;
-
-    public MyViewHolder(@NonNull View itemView) {
-        super(itemView);
-        cardContent = itemView.findViewById(R.id.card_content);
-    }
+public class MyViewHolder {
+    TextView themePhrase;
+    RecyclerView cards;
 }

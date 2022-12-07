@@ -5,13 +5,13 @@
     android:orientation="vertical"
     android:background="@drawable/background_bg">
     <TextView
-        android:id="@+id/section_phrase"
+        android:id="@+id/homeThemePhraseTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Section Phrase"
+        android:text="카드 테마 제목"
         android:padding="10dp"/>
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/home_card"
+        android:id="@+id/homeCardRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"/>
