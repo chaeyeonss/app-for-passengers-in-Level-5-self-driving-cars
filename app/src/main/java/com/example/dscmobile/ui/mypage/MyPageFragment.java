@@ -15,7 +15,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.dscmobile.R;
-import com.example.dscmobile.databinding.FragmentHomeBinding;
 import com.example.dscmobile.databinding.FragmentMypageBinding;
 
 import java.util.ArrayList;
@@ -23,8 +22,6 @@ import java.util.ArrayList;
 public class MyPageFragment extends Fragment {
 
     private FragmentMypageBinding binding;
-    private RecyclerView myPageMenu;
-    private MyPageMenuAdapter myPageMenuAdapter;
     private ArrayList<MyPageMenuData> myPageMenuData;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -33,13 +30,13 @@ public class MyPageFragment extends Fragment {
         binding = FragmentMypageBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        myPageMenu = (RecyclerView) root.findViewById(R.id.mypageMenuRecyclerView);
+        RecyclerView myPageMenu = (RecyclerView) root.findViewById(R.id.mypageMenuRecyclerView);
         myPageMenu.setHasFixedSize(true);
 
         myPageMenu.setLayoutManager(new LinearLayoutManager(getActivity()));
         myPageMenu.scrollToPosition(0);
 
-        myPageMenuAdapter = new MyPageMenuAdapter(myPageMenuData);
+        MyPageMenuAdapter myPageMenuAdapter = new MyPageMenuAdapter(myPageMenuData);
         myPageMenu.setAdapter(myPageMenuAdapter);
         myPageMenu.setItemAnimator(new DefaultItemAnimator());
 
@@ -68,11 +65,11 @@ public class MyPageFragment extends Fragment {
     private void initDataset(){
         // 테스트용 데이터
         myPageMenuData = new ArrayList<>();
-        myPageMenuData.add(new MyPageMenuData(R.drawable.ic_launcher_background, "공지/ 이벤트"));
-        myPageMenuData.add(new MyPageMenuData(R.drawable.ic_launcher_background, "이용 기록"));
-        myPageMenuData.add(new MyPageMenuData(R.drawable.ic_launcher_background, "결제수단 관리"));
-        myPageMenuData.add(new MyPageMenuData(R.drawable.ic_launcher_background, "포인트"));
-        myPageMenuData.add(new MyPageMenuData(R.drawable.ic_launcher_background, "쿠폰함"));
-        myPageMenuData.add(new MyPageMenuData(R.drawable.ic_launcher_background, "고객센터"));
+        myPageMenuData.add(new MyPageMenuData(R.drawable.ic_baseline_format_list_bulleted_24, "공지/ 이벤트"));
+        myPageMenuData.add(new MyPageMenuData(R.drawable.ic_baseline_receipt_long_24, "이용 기록"));
+        myPageMenuData.add(new MyPageMenuData(R.drawable.ic_baseline_account_balance_wallet_24, "결제수단 관리"));
+        myPageMenuData.add(new MyPageMenuData(R.drawable.ic_baseline_monetization_on_24, "포인트"));
+        myPageMenuData.add(new MyPageMenuData(R.drawable.ic_baseline_credit_card_24, "쿠폰함"));
+        myPageMenuData.add(new MyPageMenuData(R.drawable.ic_baseline_message_24, "고객센터"));
     }
 }

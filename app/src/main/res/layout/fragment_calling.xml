@@ -31,8 +31,12 @@
 
         <EditText
             android:id="@+id/departures"
+            android:drawableLeft="@drawable/ic_departures_unchecked_24"
+            android:drawablePadding="10dp"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
@@ -40,23 +44,23 @@
             android:inputType="textPostalAddress"
             android:textSize="14sp"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/arrivals"
             app:layout_constraintVertical_weight="0.5"
             tools:ignore="OnClick" />
 
         <EditText
             android:id="@+id/arrivals"
+            android:drawableLeft="@drawable/ic_arrivals_24"
+            android:drawablePadding="10dp"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:ems="10"
             android:inputType="textPostalAddress"
             android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/departures"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintVertical_weight="0.5" />

@@ -2,9 +2,9 @@
     <!-- Base application theme. -->
     <style name="Theme.DSCMobile" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryDark">@color/purple_700</item>
-        <item name="colorAccent">@color/teal_200</item>
+        <item name="colorPrimary">@color/main</item>
+        <item name="colorPrimaryDark">@color/gray</item>
+        <item name="colorAccent">@color/activate</item>
         <!-- Customize your theme here. -->
         <item name="android:windowLightStatusBar" >true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>

@@ -24,6 +24,7 @@
         android:id="@+id/mypage_profile"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:paddingBottom="10dp"
         android:orientation="horizontal"
         android:weightSum="10"
         app:layout_constraintTop_toBottomOf="@id/header_mypage"
@@ -41,6 +42,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="7"
+            android:paddingLeft="16dp"
             android:orientation="vertical"
             android:weightSum="2">
 
@@ -52,10 +54,10 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:text="사용자 이름" />
+                android:text="길동홍" />
             <TextView
                 android:id="@+id/user_contact"
-                android:text="연락처"
+                android:text="+82 10-1234-5678"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:layout_width="match_parent"
@@ -80,7 +82,6 @@
         android:layout_height="0dp"
         android:weightSum="10"
         android:orientation="vertical"
-        android:padding="20dp"
         android:background="@drawable/background_bg"
         app:layout_constraintTop_toBottomOf="@id/mypage_profile"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -89,16 +90,17 @@
             android:id="@+id/myPageAdBanner"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:paddingTop="10dp"
+            android:padding="20dp"
             android:background="@drawable/card_background_bg"
             android:backgroundTint="#d3d3d3"
-            android:layout_weight="1.5"/>
+            android:layout_weight="1.5"
+            android:adjustViewBounds="true"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/mypageMenuRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="8.5"
-            android:paddingTop="16dp"/>
+            android:paddingTop="8dp"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

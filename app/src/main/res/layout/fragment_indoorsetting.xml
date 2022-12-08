@@ -4,36 +4,85 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="10dp"
     tools:context=".ui.indoorsetting.IndoorSettingFragment">
 
-    <GridView
-        android:id="@+id/monitoringStateView"
+    <LinearLayout
+        android:id="@+id/monitoring"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#8F8989"
-        android:horizontalSpacing="1dp"
-        android:verticalSpacing="1dp"
-        android:numColumns="4"
+        android:layout_height="0dp"
+        android:weightSum="10"
+        android:orientation="vertical"
+        android:background="@drawable/indoorsetting_monitoring_background_bg"
         app:layout_constraintBottom_toTopOf="@+id/settingSection"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintVertical_weight="0.1"/>
+        app:layout_constraintVertical_weight="0.45">
+        <GridView
+            android:id="@+id/monitoringStateView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:horizontalSpacing="1dp"
+            android:numColumns="4"
+            android:layout_weight="2"/>
+        <FrameLayout
+            android:id="@+id/carControl"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"/>
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/settingSection"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/monitoringStateView"
+        android:weightSum="10"
+        app:layout_constraintTop_toBottomOf="@+id/monitoring"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintVertical_weight="0.9" >
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/carControl"
+        app:layout_constraintVertical_weight="0.55" >
+        <GridView
+            android:id="@+id/selectModeButton"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/indoorsetting_monitoring_background_bg"
+            android:horizontalSpacing="1dp"
+            android:numColumns="4"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:weightSum="10"
+            android:layout_weight="6">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:layout_marginEnd="2.5dp"
+                android:background="@drawable/indoorsetting_monitoring_background_bg"/>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:layout_marginStart="2.5dp"
+                android:background="@drawable/indoorsetting_monitoring_background_bg"/>
+        </LinearLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="2"
+            android:background="@drawable/indoorsetting_monitoring_background_bg"/>
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

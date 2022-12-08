@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="60dp"
     android:orientation="vertical"
-    android:background="@color/cardview_light_background">
+    android:weightSum="2">
 
     <TextView
         android:id="@+id/monitoring_title_text"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="5"
         android:gravity="center"
-        android:paddingTop="10dp"
-        android:text="항목" />
+        android:text="항목"
+        android:layout_weight="1"/>
 
     <TextView
         android:id="@+id/monitoring_state_text"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="10dp"
         android:gravity="center"
         android:text="상태값"
-        android:layout_weight="5"/>
+        android:layout_weight="1"/>
 
 </LinearLayout>
