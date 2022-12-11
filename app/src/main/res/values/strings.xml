@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DSCMobile</string>
+    <string name="app_name">mImo</string>
     <string name="title_home">홈</string>
     <string name="calling_tap">차량 호출</string>
     <string name="indoor_setting_tap">실내 설정</string>

@@ -10,7 +10,7 @@ public class MyPageViewModel extends ViewModel {
 
     public MyPageViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("내 정보 페이지");
+        mText.setValue("내 정보");
     }
 
     public LiveData<String> getText() {

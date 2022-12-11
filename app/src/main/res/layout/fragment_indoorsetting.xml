@@ -28,11 +28,37 @@
             android:horizontalSpacing="1dp"
             android:numColumns="4"
             android:layout_weight="2"/>
-        <FrameLayout
+        <LinearLayout
             android:id="@+id/carControl"
+            android:orientation="vertical"
+            android:weightSum="10"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="8"/>
+            android:layout_weight="8">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewpager"
+                android:layout_gravity="center"
+                android:clipToPadding="false"
+                android:clipChildren="false"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="9"
+                android:scaleType="fitXY"
+                android:layout_marginBottom="10dp"/>
+            <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+                android:id="@+id/dots_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:layout_gravity="center"
+                app:selectedDotColor="@color/gray"
+                app:dotsColor="@color/light_light_gray"
+                android:nextFocusDown="@color/gray"
+                app:dotsSize="16dp"
+                app:dotsSpacing="-1dp"
+                app:dotsWidthFactor="2.5"/>
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -46,43 +72,134 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintVertical_weight="0.55" >
-        <GridView
+        <LinearLayout
             android:id="@+id/selectModeButton"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2"
+            android:layout_weight="2.5"
+            android:orientation="vertical"
             android:layout_marginTop="5dp"
-            android:background="@drawable/indoorsetting_monitoring_background_bg"
-            android:horizontalSpacing="1dp"
-            android:numColumns="4"/>
+            android:padding="5dp"
+            android:weightSum="10"
+            android:background="@drawable/indoorsetting_monitoring_background_bg">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:layout_weight="3"
+                android:weightSum="10">
+                <TextView
+                    android:text="상황에 맞게 원하는 모드를 선택해주세요."
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="9"
+                    android:gravity="center_vertical"/>
+
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_more_24"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
+            </LinearLayout>
+            <GridView
+                android:id="@+id/selectModeGridView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="7"
+                android:horizontalSpacing="1dp"
+                android:numColumns="4"
+                android:layout_margin="5dp"/>
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="5dp"
             android:orientation="horizontal"
             android:weightSum="10"
-            android:layout_weight="6">
+            android:layout_weight="5.5">
 
             <FrameLayout
+                android:id="@+id/map"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="5"
+                android:clickable="true"
                 android:layout_marginEnd="2.5dp"
                 android:background="@drawable/indoorsetting_monitoring_background_bg"/>
 
             <FrameLayout
+                android:id="@+id/etc_control"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="5"
                 android:layout_marginStart="2.5dp"
                 android:background="@drawable/indoorsetting_monitoring_background_bg"/>
         </LinearLayout>
-        <FrameLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:weightSum="10"
             android:layout_marginTop="5dp"
             android:layout_weight="2"
-            android:background="@drawable/indoorsetting_monitoring_background_bg"/>
+            android:background="@drawable/indoorsetting_monitoring_background_bg">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="2"
+                android:background="@drawable/music_background_bg"
+                android:clipToOutline="true"
+                tools:targetApi="s" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="8"
+                android:orientation="vertical"
+                android:weightSum="10">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"
+                    android:gravity="center|center_vertical"
+                    android:text="Gangdong Station Exit 5 - Egg vinyl" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"
+                    android:orientation="horizontal">
+                    <ImageButton
+                        android:id="@+id/previous_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_baseline_skip_previous_24"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/play_button"/>
+                    <ImageButton
+                        android:id="@+id/play_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_baseline_play_arrow_24"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/previous_button"
+                        app:layout_constraintEnd_toStartOf="@id/next_button"/>
+                    <ImageButton
+                        android:id="@+id/next_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_baseline_skip_next_24"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/play_button"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        </LinearLayout>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
